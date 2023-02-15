@@ -129,8 +129,44 @@ console.log(clone);
 // копии массивов
 
 const oldArray = ['a' , 'b', 'c'];
-const newArray = oldArray; // ссылка на массив
+// const newArray = oldArray; // ссылка на массив
+const newArray = oldArray.slice(); // вставляется массив из oldArray
 
+newArray[1] = 'streaersgvv';
+console.log(oldArray); // [ 'a', 'b', 'c' ]
+console.log(newArray); // [ 'a', 'streaersgvv', 'c' ]
+
+
+const video = ['youtube' , 'vimeo', 'rutue'],
+blogs = ['wordpress', 'livejournal', 'blogger'],
+internet = [...video, ...blogs, 'vk', 'facebook'];
+
+console.log(internet); // все элементы массива в одном массиве
+
+function log(a, b, c) {
+    console.log(a);
+    console.log(b);
+    console.log(c);
+}
+
+const num = [2, 5 ,7];
+
+log(...num);
+
+// 2
+// 5
+// 7
+
+const array = ["a", "b"];
+
+const newAaray = [...array]; // копия массива
+
+const q = {
+    one: 1,
+    two: 2
+};
+
+const newObj = {...q};
 
 // массивы и псевдомассивы
 
