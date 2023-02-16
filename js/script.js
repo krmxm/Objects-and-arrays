@@ -19,7 +19,7 @@
 
 //  delete options.name; // метод удаляет свойство объекта
 
- // приямых констант в JavaScript не существует
+//  приямых констант в JavaScript не существует
 
 //  console.log(options);
 
@@ -71,7 +71,7 @@ const options = {
 
 options.makeTest(); // Test
 
-// console.log(Object.keys(options)); // [ 'name', 'width', 'height', 'colors' ], встоеннный метод в JavaScript
+// console.log(Object.keys(options)); // [ 'name', 'width', 'height', 'colors' ], встроеннный метод в JavaScript
 
 // console.log(Object.keys(options).length); // 4, встроенное свойсто
 
@@ -198,6 +198,7 @@ arr.forEach(function(item, i, arr) {
 // item - тот элемент, который мы сейчас перебираем, i - номер по порядку, arr - ссылка на массив
 // 0: 1 внутри массива 1,2,3,6,8 
 
+
 // методы массива
 
 // const str = prompt ("", "");
@@ -214,3 +215,92 @@ arr.sort(compareNum); // сортирует числа по порядку
 function compareNum(a, b) {
     return a - b;
 }
+
+
+
+
+// У вас есть готовый объект с данными. Разработчик Х хочет написать часть функционала, но ему не
+// хватает навыков. Выполните часть заданий за него.
+
+// Задачи:
+
+// 1) Напишите функцию showExperience, которая будет принимать в себя объект со всеми данными и
+// возвращать строку с опытом.
+
+// Пример:
+
+// showExperience(personalPlanPeter) => '1 month'
+
+// P.S. желательно использовать деструктуризацию, но не обязательно
+
+const personalPlanPeter = {
+    name: "Peter",
+    age: "29",
+    skills: {
+        languages: ['ru', 'eng'],
+        programmingLangs: {
+            js: '20%',
+            php: '10%'
+        },
+        exp: '1 month'
+    },
+    showAgeAndLangs: function(plan) {
+        const {age} = plan;
+        const {languages} = plan.skills;
+        let str = `Мне ${age} и я владею языками: `;
+
+        languages.forEach(function(lang) {
+            str += `${lang.toUpperCase()} `;
+        });
+
+        return str;
+    }
+};
+
+
+// function showExperience(plan) {
+//     const {exp} = plan.skills;
+//     return exp;
+// }
+
+// console.log(showExperience(personalPlanPeter));
+
+// 2) Напишите функцию showProgrammingLangs, которая будет принимать в себя объект со всеми
+// данными и возвращать строку в нужном виде.
+
+// Пример:
+
+// showProgrammingLangs(personalPlanPeter)  =>
+
+// "Язык js изучен на 20% Язык php изучен на 10%"
+
+// Причем функция должна работать вне зависимости от количества языков. Если ни один не указан,
+// то возвращается пустая строка.
+
+// P.S. Для переноса строки используется \n в конце строки.
+
+function showProgrammingLangs(plan) {
+    
+    let str = '';
+    const {programmingLangs} = plan.skills;
+    for (let lang in programmingLangs) {
+        str += `Язык ${lang} изучен на ${programmingLangs[lang]}\n`;
+    }
+
+    return str;
+
+//     const {border, bg} = options.colors;
+// console.log(border); // black
+    // for (let key in options) {
+//     // if (typeof(options[key]) === 'object') {
+//     //     for (let i in options[key]) {
+//     //         console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
+//     //     }
+//     // } else {
+//     //     console.log(`Свойство ${key} имеет значение ${options[key]}`);
+//         counter++;
+//     // }
+// }
+}
+
+console.log(showProgrammingLangs(personalPlanPeter));
